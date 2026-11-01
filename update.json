@@ -1,6 +1,6 @@
 {
-  "version": "0.1.0",
-  "url": "https://example.com/ignix/download",
-  "changelog": "First release.",
+  "version": "0.2.0",
+  "url": "https://github.com/Patrykv220/ignix-data/releases/latest",
+  "changelog": "Nowe mody, poprawki menu",
   "required": false
 }
