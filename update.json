@@ -1,0 +1,6 @@
+{
+  "version": "0.1.0",
+  "url": "https://example.com/ignix/download",
+  "changelog": "First release.",
+  "required": false
+}

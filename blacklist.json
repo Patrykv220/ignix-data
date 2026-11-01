@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "classes": [
+    "net.ccbluex.liquidbounce.LiquidBounce",
+    "today.vape.Vape",
+    "keystrokesmod.client.main.Raven",
+    "com.raven.Raven",
+    "me.zero.alpine.EventBus",
+    "net.minecraft.launchwrapper.Launch",
+    "org.spongepowered.asm.launch.MixinBootstrap"
+  ],
+  "threads": [
+    "Attach Listener"
+  ],
+  "modules": [],
+  "moduleHashes": [],
+  "jvmArgs": [
+    "-javaagent",
+    "-agentlib",
+    "-agentpath",
+    "-xbootclasspath"
+  ]
+}
