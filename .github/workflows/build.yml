@@ -13,7 +13,7 @@ jobs:
       - name: Package
         shell: bash
         run: |
-          mkdir -p input && cp "$(find . -name IgnixLauncher.jar | head -1)" input/ && cp "$(find . -name icon.ico | head -1)" icon.ico
+          mkdir -p input && cp IgnixLauncher.jar input/
           jpackage --type app-image --name IgnixLauncher --input input --main-jar IgnixLauncher.jar \
             --main-class pl.ignix.launcher.Main --icon icon.ico --app-version 0.1.0 --vendor "Ignix" \
             --java-options "-Dsun.java2d.uiScale.enabled=true" \
