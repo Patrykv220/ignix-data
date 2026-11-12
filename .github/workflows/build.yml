@@ -1,0 +1,30 @@
+name: Build Ignix Launcher (exe)
+on:
+  workflow_dispatch:
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Package
+        shell: bash
+        run: |
+          mkdir -p input && cp IgnixLauncher.jar input/
+          jpackage --type app-image --name IgnixLauncher --input input --main-jar IgnixLauncher.jar \
+            --main-class pl.ignix.launcher.Main --icon icon.ico --app-version 0.1.0 --vendor "Ignix" \
+            --java-options "-Dsun.java2d.uiScale.enabled=true" \
+            --add-modules java.base,java.desktop,java.logging,java.naming,jdk.crypto.ec,jdk.crypto.cryptoki,jdk.charsets,jdk.zipfs \
+            --dest dist
+          jpackage --type exe --name IgnixLauncher --app-image dist/IgnixLauncher --app-version 0.1.0 \
+            --vendor "Ignix" --win-shortcut --win-menu --win-dir-chooser --dest dist
+          cd dist && 7z a IgnixLauncher-portable.zip IgnixLauncher
+      - uses: actions/upload-artifact@v4
+        with:
+          name: IgnixLauncher
+          path: |
+            dist/*.exe
+            dist/IgnixLauncher-portable.zip
